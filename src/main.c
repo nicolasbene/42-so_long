@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:19:23 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/13 10:26:15 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/16 12:03:07 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,24 +52,23 @@ static void	ft_check_errors(t_game *game)
 	err = ft_check_wall(game);
 	if (err < 0)
 		ft_exit(game, err);
-	err = ft_parse_xpm(game);
-	if (err < 0)
-		ft_exit(game, err);
+	// err = ft_parse_xpm(game);
+	// if (err < 0)
+	// 	ft_exit(game, err);
 }
 
 int	main(int argc, char **argv)
 {
 	t_game	*game;
-	
+
 	if (argc != 2)
 		ft_exit(NULL, ERROR_USAGE);
 	game = (t_game *)malloc(sizeof(t_game));
 	if (!game)
 		ft_exit(game, ERROR_MALLOC);
 	ft_init_structure(game, argv);
-	if (check_extension(game) == ERROR)
+	if (ft_check_extension(game) == ERROR)
 		ft_exit(game, ERROR_USAGE);
 	ft_check_errors(game);
-	
-	return (0);
+	return (SUCCESS);
 }

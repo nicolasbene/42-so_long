@@ -16,7 +16,7 @@ en fonction du besoin exit() ->
 - sprites (ceux sont les xmp) : mlx_destroy_image()
 
 free();
-
+ 
 2) initialisation des structures
 - a NULL 0 ou la mlx mlx_init()
 

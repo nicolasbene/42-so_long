@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:49:26 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/13 10:31:14 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/16 11:32:10 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,20 @@ typedef struct s_game
 // Initiate struct
 void	ft_init_structure(t_game *game, char **argv);
 
+// Open file :
+int		ft_open_file(t_game *game);
+
+// Map checks :
+int		ft_check_rectangle(t_game *game);
+int		ft_check_symbol(t_game *game);
+int		ft_check_wall(t_game *game);
+int		ft_check_extension(t_game *game);
+
+int	ft_subword(char *s, char *pattern);
+
 // Exit
+void	ft_free_map(t_game	*game);
+void	ft_print_error(int err);
 void	ft_exit(t_game *game, int err);
 
 #endif

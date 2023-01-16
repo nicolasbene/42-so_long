@@ -1,13 +1,16 @@
 NAME	= so_long
 
-SRC		= main.c \
-			exit.c
+SRC		=	main.c \
+			map_checks.c \
+			exit.c \
+			parse_ber.c \
+			map_check_symbols.c
 
 OBJ	= $(addprefix ./obj/,$(SRC:.c=.o))
 
 CC	= gcc
 
-CFLAGS	= -Wall -Wextra #-Werror
+CFLAGS	= -Wall -Wextra -Werror
 
 LIBFTA	= ./libft/libft.a
 LIBINCL	= -I./libft
@@ -15,7 +18,7 @@ LIBLINK	= -L./libft -lft
 
 MLXA	= ./mlx/libmlx.a
 MLXINCL	= -I./mlx
-MLXLINK	= -L./mlx -lmlx -lX11 -lXext
+MLXLINK	= -Lmlx -lmlx -Imlx -Lmlx -lm -lbsd -lX11 -lXext
 
 all: obj $(LIBFTA) $(MLXA) $(NAME)
 
@@ -32,7 +35,7 @@ $(MLXA):
 	make -C ./mlx
 
 $(NAME): $(OBJ)
-	$(CC) -o $(NAME) $(OBJ) $(LIBLINK) $(MLXLINK)
+	$(CC) -o $(NAME) $(OBJ) $(LIBLINK) $(MLXLINK) -g3 -fsanitize=address
 
 clean:
 	rm -rf ./obj/

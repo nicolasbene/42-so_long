@@ -6,7 +6,7 @@
 #    By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/10 15:22:26 by nibenoit          #+#    #+#              #
-#    Updated: 2022/11/13 15:08:34 by nibenoit         ###   ########.fr        #
+#    Updated: 2023/01/16 11:00:27 by nibenoit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,8 @@ SRCS = ft_isalpha.c\
 	ft_putchar_fd.c\
 	ft_putstr_fd.c\
 	ft_putendl_fd.c\
-	ft_putnbr_fd.c
+	ft_putnbr_fd.c\
+	get_next_line.c
 OBJS = ${SRCS:.c=.o}
 SRCSBONUS = ft_lstnew.c\
 		ft_lstadd_front.c\
