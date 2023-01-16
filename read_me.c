@@ -7,7 +7,8 @@
 - si la map est rectangle
 - si les caracteres sont correctes
 - que des murs autours
-- que toutes les xpm soit ok mlx_new_window(), mlx_xpm_file_to_image() -> aller chercher des images au format png, puis redimensionner sur paint en pixel 50/50
+- que toutes les xpm soit ok 
+mlx_new_window(), mlx_xpm_file_to_image() -> aller chercher des images au format png, puis redimensionner sur paint en pixel 50/50
 traduire des images en xpm
 
 en fonction du besoin exit() ->
@@ -16,7 +17,7 @@ en fonction du besoin exit() ->
 - sprites (ceux sont les xmp) : mlx_destroy_image()
 
 free();
- 
+
 2) initialisation des structures
 - a NULL 0 ou la mlx mlx_init()
 

@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:49:26 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/16 11:32:10 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/16 18:34:24 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ typedef struct s_game
 	int		player_pos_y;
 	void	*sprite_player_1;
 	void	*sprite_end;
+	void	*sprite_wall;
+	void	*sprite_grass;
 	void	*sprite_collectible;
 	void	*mlx;
 	void	*window;
@@ -67,14 +69,20 @@ void	ft_init_structure(t_game *game, char **argv);
 
 // Open file :
 int		ft_open_file(t_game *game);
+int		ft_second_open(t_game *game, int i);
 
 // Map checks :
 int		ft_check_rectangle(t_game *game);
 int		ft_check_symbol(t_game *game);
 int		ft_check_wall(t_game *game);
 int		ft_check_extension(t_game *game);
+int		ft_subword(char *s, char *pattern);
 
-int	ft_subword(char *s, char *pattern);
+// Parsing :
+int		ft_parse_xpm(t_game *game);
+
+// Render & keys :
+void	ft_render_img(t_game *game);
 
 // Exit
 void	ft_free_map(t_game	*game);

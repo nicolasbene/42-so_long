@@ -4,7 +4,9 @@ SRC		=	main.c \
 			map_checks.c \
 			exit.c \
 			parse_ber.c \
-			map_check_symbols.c
+			map_check_symbols.c\
+			parse_xpm.c\
+			render.c\
 
 OBJ	= $(addprefix ./obj/,$(SRC:.c=.o))
 
@@ -35,7 +37,7 @@ $(MLXA):
 	make -C ./mlx
 
 $(NAME): $(OBJ)
-	$(CC) -o $(NAME) $(OBJ) $(LIBLINK) $(MLXLINK) -g3 -fsanitize=address
+	$(CC) -o $(NAME) $(OBJ) $(LIBLINK) $(MLXLINK) #-g3 -fsanitize=address
 
 clean:
 	rm -rf ./obj/

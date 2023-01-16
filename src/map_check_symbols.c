@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:11:06 by acerdan           #+#    #+#             */
-/*   Updated: 2023/01/16 11:26:03 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/16 12:24:31 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,6 @@ int	ft_check_symbol(t_game *game)
 				game->end++;
 			else if (game->map[i][j] == 'C')
 				game->collectible++;
-			else if (game->map[i][j] == 'X'
-				&& ft_subword(game->filename, "bonus") == ERROR)
-				return (ERROR_INVALID_SYMBOLS);
-			else if (game->map[i][j] != '1' && game->map[i][j] != '0'
-				&& game->map[i][j] != 'X')
-				return (ERROR_INVALID_SYMBOLS);
 		}
 	}
 	return (ft_return(game));

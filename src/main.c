@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:19:23 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/16 12:03:07 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/16 18:34:39 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	ft_init_structure(t_game *game, char **argv)
 	game->sprite_player_1 = NULL;
 	game->sprite_collectible = NULL;
 	game->sprite_end = NULL;
+	game->sprite_wall = NULL;
+	game->sprite_grass = NULL;
 	game->mlx = mlx_init();
 	if (!game->mlx)
 		ft_exit(game, ERROR_MLX);
@@ -52,9 +54,9 @@ static void	ft_check_errors(t_game *game)
 	err = ft_check_wall(game);
 	if (err < 0)
 		ft_exit(game, err);
-	// err = ft_parse_xpm(game);
-	// if (err < 0)
-	// 	ft_exit(game, err);
+	err = ft_parse_xpm(game);
+	if (err < 0)
+		ft_exit(game, err);
 }
 
 int	main(int argc, char **argv)
@@ -70,5 +72,7 @@ int	main(int argc, char **argv)
 	if (ft_check_extension(game) == ERROR)
 		ft_exit(game, ERROR_USAGE);
 	ft_check_errors(game);
+	ft_render_img(game);
+	mlx_loop(game->mlx);
 	return (SUCCESS);
 }
