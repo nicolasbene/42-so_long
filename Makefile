@@ -5,6 +5,7 @@ SRC		=	main.c \
 			exit.c \
 			parse_ber.c \
 			map_check_symbols.c\
+			map_check_path.c\
 			parse_xpm.c\
 			render.c\
 
@@ -37,7 +38,7 @@ $(MLXA):
 	make -C ./mlx
 
 $(NAME): $(OBJ)
-	$(CC) -o $(NAME) $(OBJ) $(LIBLINK) $(MLXLINK) #-g3 -fsanitize=address
+	$(CC) -o $(NAME) $(OBJ) $(LIBLINK) $(MLXLINK) -g3
 
 clean:
 	rm -rf ./obj/

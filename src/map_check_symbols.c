@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:11:06 by acerdan           #+#    #+#             */
-/*   Updated: 2023/01/16 12:24:31 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:15:27 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	ft_fill_struct(t_game *game, int i, int j)
 	game->player++;
 }
 
-int	ft_check_symbol(t_game *game)
+int	ft_check_symbols(t_game *game)
 {
 	int	i;
 	int	j;

@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:49:26 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/16 18:34:24 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/17 18:51:55 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # define ERROR_INVALID_SYMBOLS		-8
 # define ERROR_USAGE				-9
 # define ERROR_MLX					-10
+# define ERROR_PATH					-11
 # define KEY_W						119
 # define KEY_S						115
 # define KEY_A						97
@@ -64,6 +65,16 @@ typedef struct s_game
 
 }	t_game;
 
+typedef struct s_point {
+	int	x;
+	int	y;
+}				t_point;
+
+typedef struct s_count {
+	int	c;
+	int	e;
+}				t_count;
+
 // Initiate struct
 void	ft_init_structure(t_game *game, char **argv);
 
@@ -73,13 +84,14 @@ int		ft_second_open(t_game *game, int i);
 
 // Map checks :
 int		ft_check_rectangle(t_game *game);
-int		ft_check_symbol(t_game *game);
+int		ft_check_symbols(t_game *game);
 int		ft_check_wall(t_game *game);
 int		ft_check_extension(t_game *game);
-int		ft_subword(char *s, char *pattern);
+int		ft_check_path(t_game *game);
 
 // Parsing :
 int		ft_parse_xpm(t_game *game);
+int		ft_subword(char *s, char *pattern);
 
 // Render & keys :
 void	ft_render_img(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:19:23 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/16 18:34:39 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/17 18:37:08 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,13 @@ static void	ft_check_errors(t_game *game)
 	err = ft_check_rectangle(game);
 	if (err < 0)
 		ft_exit(game, err);
-	err = ft_check_symbol(game);
+	err = ft_check_symbols(game);
 	if (err < 0)
 		ft_exit(game, err);
 	err = ft_check_wall(game);
+	if (err < 0)
+		ft_exit(game, err);
+	err = ft_check_path(game);
 	if (err < 0)
 		ft_exit(game, err);
 	err = ft_parse_xpm(game);

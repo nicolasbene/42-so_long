@@ -24,7 +24,10 @@ free();
 3) render
 - analyser la map et afficher en de 1 element mlx_put_image_to_window()
 
-4) interactions avec le clavier
+4) Checker si une solution est possible dans la map
+- utiliser algo floodfil
+
+5) interactions avec le clavier
 - mlx_key_hook(), choisir une fonction a implementer ex : ft_event_key()
 
 inserer le code pour :

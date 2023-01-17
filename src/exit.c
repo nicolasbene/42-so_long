@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:38:43 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/16 11:34:49 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/17 15:53:05 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,24 @@ void	ft_print_error(int err)
 		ft_putstr_fd("Error\nERROR_INVALID_SYMBOLS\n", 2);
 	else if (err == ERROR_USAGE)
 		ft_putstr_fd("Error\nusage: ./so_long map.ber\n", 2);
+	else if (err == ERROR_PATH)
+		ft_putstr_fd("Error\nINVALID_PATH\n", 2);
 	else
 		return ;
+}
+
+static void	ft_clean_sprite(t_game *game)
+{
+	if (game->sprite_grass)
+		mlx_destroy_image(game->mlx, game->sprite_grass);
+	if (game->sprite_end)
+		mlx_destroy_image(game->mlx, game->sprite_end);
+	if (game->sprite_wall)
+		mlx_destroy_image(game->mlx, game->sprite_wall);
+	if (game->sprite_collectible)
+		mlx_destroy_image(game->mlx, game->sprite_collectible);
+	if (game->sprite_player_1)
+		mlx_destroy_image(game->mlx, game->sprite_player_1);
 }
 
 void	ft_exit(t_game *game, int err)
@@ -58,6 +74,7 @@ void	ft_exit(t_game *game, int err)
 	{
 		if (game->map)
 			ft_free_map(game);
+		ft_clean_sprite(game);
 		if (game->window)
 			mlx_destroy_window(game->mlx, game->window);
 		if (game->mlx)
