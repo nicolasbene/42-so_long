@@ -7,6 +7,7 @@ SRC		=	main.c \
 			map_check_symbols.c\
 			map_check_path.c\
 			parse_xpm.c\
+			event_key.c\
 			render.c\
 
 OBJ	= $(addprefix ./obj/,$(SRC:.c=.o))

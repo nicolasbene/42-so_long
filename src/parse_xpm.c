@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:05:45 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/17 18:43:28 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/18 18:40:18 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	ft_parse_xpm(t_game *game)
 			"xpm/kichta.xpm", &game->img_size, &game->img_size);
 	game->sprite_player_1 = mlx_xpm_file_to_image(game->mlx,
 			"xpm/gazo.xpm", &game->img_size, &game->img_size);
+	game->sprite_player_2 = mlx_xpm_file_to_image(game->mlx,
+			"xpm/gazo.xpm", &game->img_size, &game->img_size);
 	game->sprite_collectible = mlx_xpm_file_to_image(game->mlx,
 			"xpm/weed.xpm", &game->img_size, &game->img_size);
 	game->sprite_wall = mlx_xpm_file_to_image(game->mlx,
@@ -30,7 +32,7 @@ int	ft_parse_xpm(t_game *game)
 	game->sprite_grass = mlx_xpm_file_to_image(game->mlx,
 			"xpm/snow.xpm", &game->img_size, &game->img_size);
 	if (!game->sprite_end || !game->sprite_grass || !game->sprite_player_1
-		|| !game->sprite_collectible || !game->sprite_wall)
+		|| !game->sprite_player_2 || !game->sprite_collectible || !game->sprite_wall)
 		ft_exit(game, ERROR_OPEN);
 	return (SUCCESS);
 }

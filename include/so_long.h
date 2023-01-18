@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:49:26 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/17 18:51:55 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/18 19:46:37 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_game
 	int		player_pos_x;
 	int		player_pos_y;
 	void	*sprite_player_1;
+	void	*sprite_player_2;
 	void	*sprite_end;
 	void	*sprite_wall;
 	void	*sprite_grass;
@@ -95,6 +96,8 @@ int		ft_subword(char *s, char *pattern);
 
 // Render & keys :
 void	ft_render_img(t_game *game);
+int		ft_event_key(int key_code, t_game *game);
+int		ft_render_static(t_game *game);
 
 // Exit
 void	ft_free_map(t_game	*game);

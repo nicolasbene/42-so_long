@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 18:25:25 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/17 18:47:27 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/18 16:37:04 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,8 @@ char	**ft_map_fill(t_game *game, char **map, int width)
 		while (j < width)
 		{
 			map2[i][j] = map[i][j];
-			printf("%c", map2[i][j]);
 			j++;
 		}
-		printf("\n");
 		map2[i][j] = '\0';
 		i++;
 	}
