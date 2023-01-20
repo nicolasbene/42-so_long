@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:05:45 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/20 14:37:26 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:11:09 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,12 @@ int	ft_parse_xpm(t_game *game)
 			"xpm/sable.xpm", &game->img_size, &game->img_size);
 	game->sprite_fire = mlx_xpm_file_to_image(game->mlx,
 			"xpm/fire.xpm", &game->img_size, &game->img_size);
+	game->sprite_fire2 = mlx_xpm_file_to_image(game->mlx,
+			"xpm/fire2.xpm", &game->img_size, &game->img_size);
 	ft_extra_sprites(game);
 	if (!game->sprite_end || !game->sprite_sand || !game->sprite_player_1
 		|| !game->sprite_collectible || !game->sprite_wall
-		|| !game->sprite_fire)
+		|| !game->sprite_fire || !game->sprite_fire2)
 		ft_exit(game, ERROR_OPEN);
 	return (SUCCESS);
 }

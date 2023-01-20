@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:07:25 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/20 12:08:40 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:16:38 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	ft_render_sprites(t_game *game, int i, int j, int key_code)
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->sprite_sand, IMG_SIZE * j, IMG_SIZE * i);
 	else if (game->map[i][j] == 'P'
-		&&ft_choice_player(game, i, j, key_code) == 1)
+		&& ft_choice_player(game, i, j, key_code) == 1)
 		return ;
 	else if (game->map[i][j] == 'P')
 		mlx_put_image_to_window(game->mlx, game->window,
@@ -61,9 +61,12 @@ static void	ft_render_sprites(t_game *game, int i, int j, int key_code)
 	else if (game->map[i][j] == 'E')
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->sprite_end, IMG_SIZE * j, IMG_SIZE * i);
-	else if (game->map[i][j] == 'X')
+	else if (game->map[i][j] == 'X' && (game->nb_move % 2 == 0))
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->sprite_fire, IMG_SIZE * j, IMG_SIZE * i);
+	else if (game->map[i][j] == 'X' && (game->nb_move % 2 != 0))
+		mlx_put_image_to_window(game->mlx, game->window,
+			game->sprite_fire2, IMG_SIZE * j, IMG_SIZE * i);
 }
 
 void	ft_render_img(t_game *game, int key_code)

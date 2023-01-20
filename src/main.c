@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:19:23 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/20 12:05:28 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:11:39 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_init_structure_next(t_game *game)
 	game->sprite_centaur_down = NULL;
 	game->sprite_centaur_left = NULL;
 	game->sprite_centaur_right = NULL;
+	game->sprite_fire2 = NULL;
 }
 
 void	ft_init_structure(t_game *game, char **argv)

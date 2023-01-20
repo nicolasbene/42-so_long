@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:49:26 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/20 11:59:42 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:12:05 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct s_game
 	void	*sprite_sand;
 	void	*sprite_collectible;
 	void	*sprite_fire;
+	void	*sprite_fire2;
 	void	*sprite_centaur_up;
 	void	*sprite_centaur_down;
 	void	*sprite_centaur_left;

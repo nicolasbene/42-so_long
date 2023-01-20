@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:38:43 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/20 11:43:44 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:13:29 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ static void	ft_clean_sprite(t_game *game)
 		mlx_destroy_image(game->mlx, game->sprite_player_1);
 	if (game->sprite_fire)
 		mlx_destroy_image(game->mlx, game->sprite_fire);
+	if (game->sprite_fire2)
+		mlx_destroy_image(game->mlx, game->sprite_fire2);
 	if (game->sprite_centaur_down)
 		mlx_destroy_image(game->mlx, game->sprite_centaur_down);
 	if (game->sprite_centaur_up)

@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:56:11 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/20 12:17:41 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/20 15:54:59 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	ft_event_key(int key_code, t_game *game)
 	printed_moves = ft_itoa(game->nb_move);
 	if (!(printed_moves))
 		ft_exit(game, ERROR_MALLOC);
-	mlx_string_put(game->mlx, game->window, 55, 65, 010100, printed_moves);
+	mlx_string_put(game->mlx, game->window, 55, 65, 45, printed_moves);
 	free(printed_moves);
 	return (SUCCESS);
 }
