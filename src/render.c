@@ -6,43 +6,52 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:07:25 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/18 19:48:45 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/20 12:08:40 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_render_static(t_game *game)
+int	ft_choice_player(t_game *game, int i, int j, int key_code)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (game->map[i])
+	if (key_code == KEY_W)
 	{
-		j = 0;
-		while (game->map[i][j])
-		{
-			mlx_put_image_to_window(game->mlx, game->window,
-				game->sprite_grass, IMG_SIZE * j, IMG_SIZE * i);
-			j++;
-		}
-		i++;
+		mlx_put_image_to_window(game->mlx, game->window,
+			game->sprite_centaur_up, IMG_SIZE * j, IMG_SIZE * i);
+		return (1);
+	}
+	else if (key_code == KEY_S)
+	{
+		mlx_put_image_to_window(game->mlx, game->window,
+			game->sprite_centaur_down, IMG_SIZE * j, IMG_SIZE * i);
+		return (1);
+	}
+	else if (key_code == KEY_A)
+	{
+		mlx_put_image_to_window(game->mlx, game->window,
+			game->sprite_centaur_left, IMG_SIZE * j, IMG_SIZE * i);
+		return (1);
+	}	
+	else if (key_code == KEY_D)
+	{
+		mlx_put_image_to_window(game->mlx, game->window,
+			game->sprite_centaur_right, IMG_SIZE * j, IMG_SIZE * i);
+		return (1);
 	}
 	return (0);
 }
 
-static void	ft_render_sprites(t_game *game, int i, int j)
+static void	ft_render_sprites(t_game *game, int i, int j, int key_code)
 {
 	if (game->map[i][j] == '0')
 		mlx_put_image_to_window(game->mlx, game->window,
-			game->sprite_grass, IMG_SIZE * j, IMG_SIZE * i);
-	else if ((game->map[i][j] == 'P') && (game->nb_move % 2 == 0))
+			game->sprite_sand, IMG_SIZE * j, IMG_SIZE * i);
+	else if (game->map[i][j] == 'P'
+		&&ft_choice_player(game, i, j, key_code) == 1)
+		return ;
+	else if (game->map[i][j] == 'P')
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->sprite_player_1, IMG_SIZE * j, IMG_SIZE * i);
-	else if (game->map[i][j] == 'P' && (game->nb_move % 2 != 0))
-		mlx_put_image_to_window(game->mlx, game->window,
-			game->sprite_player_2, IMG_SIZE * j, IMG_SIZE * i);
 	else if (game->map[i][j] == '1')
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->sprite_wall, IMG_SIZE * j, IMG_SIZE * i);
@@ -52,10 +61,12 @@ static void	ft_render_sprites(t_game *game, int i, int j)
 	else if (game->map[i][j] == 'E')
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->sprite_end, IMG_SIZE * j, IMG_SIZE * i);
-
+	else if (game->map[i][j] == 'X')
+		mlx_put_image_to_window(game->mlx, game->window,
+			game->sprite_fire, IMG_SIZE * j, IMG_SIZE * i);
 }
 
-void	ft_render_img(t_game *game)
+void	ft_render_img(t_game *game, int key_code)
 {
 	int	i;
 	int	j;
@@ -65,6 +76,6 @@ void	ft_render_img(t_game *game)
 	{
 		j = -1;
 		while (game->map[i][++j])
-			ft_render_sprites(game, i, j);
+			ft_render_sprites(game, i, j, key_code);
 	}
 }

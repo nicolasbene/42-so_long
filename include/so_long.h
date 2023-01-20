@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:49:26 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/18 19:46:37 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/20 11:59:42 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <mlx.h>
 # include "libft.h"
 # include <stdio.h>
-# define IMG_SIZE					50
+# define IMG_SIZE					64
 # define END_OF_GAME				2
 # define SUCCESS					1
 # define ERROR						0
@@ -53,11 +53,15 @@ typedef struct s_game
 	int		player_pos_x;
 	int		player_pos_y;
 	void	*sprite_player_1;
-	void	*sprite_player_2;
 	void	*sprite_end;
 	void	*sprite_wall;
-	void	*sprite_grass;
+	void	*sprite_sand;
 	void	*sprite_collectible;
+	void	*sprite_fire;
+	void	*sprite_centaur_up;
+	void	*sprite_centaur_down;
+	void	*sprite_centaur_left;
+	void	*sprite_centaur_right;
 	void	*mlx;
 	void	*window;
 	int		img_size;
@@ -95,7 +99,7 @@ int		ft_parse_xpm(t_game *game);
 int		ft_subword(char *s, char *pattern);
 
 // Render & keys :
-void	ft_render_img(t_game *game);
+void	ft_render_img(t_game *game, int key_code);
 int		ft_event_key(int key_code, t_game *game);
 int		ft_render_static(t_game *game);
 

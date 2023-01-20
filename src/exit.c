@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:38:43 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/18 19:24:32 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/20 11:43:44 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ void	ft_print_error(int err)
 
 static void	ft_clean_sprite(t_game *game)
 {
-	if (game->sprite_grass)
-		mlx_destroy_image(game->mlx, game->sprite_grass);
+	if (game->sprite_sand)
+		mlx_destroy_image(game->mlx, game->sprite_sand);
 	if (game->sprite_end)
 		mlx_destroy_image(game->mlx, game->sprite_end);
 	if (game->sprite_wall)
@@ -65,6 +65,16 @@ static void	ft_clean_sprite(t_game *game)
 		mlx_destroy_image(game->mlx, game->sprite_collectible);
 	if (game->sprite_player_1)
 		mlx_destroy_image(game->mlx, game->sprite_player_1);
+	if (game->sprite_fire)
+		mlx_destroy_image(game->mlx, game->sprite_fire);
+	if (game->sprite_centaur_down)
+		mlx_destroy_image(game->mlx, game->sprite_centaur_down);
+	if (game->sprite_centaur_up)
+		mlx_destroy_image(game->mlx, game->sprite_centaur_up);
+	if (game->sprite_centaur_left)
+		mlx_destroy_image(game->mlx, game->sprite_centaur_left);
+	if (game->sprite_centaur_right)
+		mlx_destroy_image(game->mlx, game->sprite_centaur_right);
 }
 
 void	ft_exit(t_game *game, int err)

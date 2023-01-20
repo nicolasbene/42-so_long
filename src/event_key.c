@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:56:11 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/18 19:30:27 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/20 12:17:41 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ void	ft_check_key(t_game *game, int x, int y)
 		ft_putnbr_fd(game->nb_move, 1);
 		ft_putchar_fd('\n', 1);
 	}
-	// if (game->map[x][y] == 'X' && (ft_subword(game->filename, "bonus")
-	// == SUCCESS))
-	// {
-	// 	ft_print_msg(2);
-	// 	ft_exit(game, END_OF_GAME);
-	// }
+	if (game->map[x][y] == 'X' && (ft_subword(game->filename, "bonus")
+	== SUCCESS))
+	{
+		ft_print_msg(2);
+		ft_exit(game, END_OF_GAME);
+	}
 }
 
 int	ft_event_key(int key_code, t_game *game)
@@ -70,11 +70,11 @@ int	ft_event_key(int key_code, t_game *game)
 		ft_check_key(game, game->player_pos_x, game->player_pos_y + 1);
 	else if (key_code == KEY_ESC)
 		ft_exit(game, END_OF_GAME);
-	ft_render_img(game);
+	ft_render_img(game, key_code);
 	printed_moves = ft_itoa(game->nb_move);
 	if (!(printed_moves))
 		ft_exit(game, ERROR_MALLOC);
-	mlx_string_put(game->mlx, game->window, 47, 55, 010100, printed_moves);
+	mlx_string_put(game->mlx, game->window, 55, 65, 010100, printed_moves);
 	free(printed_moves);
 	return (SUCCESS);
 }
