@@ -1,16 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:19:23 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/23 10:30:09 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/23 10:27:50 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
+
+void	ft_init_structure_next(t_game *game)
+{
+	game->sprite_centaur_up = NULL;
+	game->sprite_centaur_down = NULL;
+	game->sprite_centaur_left = NULL;
+	game->sprite_centaur_right = NULL;
+	game->sprite_fire2 = NULL;
+}
 
 void	ft_init_structure(t_game *game, char **argv)
 {
@@ -37,6 +46,7 @@ void	ft_init_structure(t_game *game, char **argv)
 	game->img_size = 0;
 	game->win_width = 0;
 	game->win_height = 0;
+	ft_init_structure_next(game);
 }
 
 static int	close_with_cross(t_game *game)
@@ -82,7 +92,7 @@ int	main(int argc, char **argv)
 	if (ft_check_extension(game) == ERROR)
 		ft_exit(game, ERROR_USAGE);
 	ft_check_errors(game);
-	ft_render_img(game);
+	ft_render_img(game, 0);
 	mlx_key_hook(game->window, ft_event_key, game);
 	mlx_hook(game->window, 33, 1L << 22, close_with_cross, game);
 	mlx_loop(game->mlx);

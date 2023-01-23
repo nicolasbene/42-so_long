@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:49:26 by nibenoit          #+#    #+#             */
-/*   Updated: 2023/01/23 10:33:03 by nibenoit         ###   ########.fr       */
+/*   Updated: 2023/01/23 10:27:06 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
@@ -58,7 +58,11 @@ typedef struct s_game
 	void	*sprite_sand;
 	void	*sprite_collectible;
 	void	*sprite_fire;
+	void	*sprite_fire2;
+	void	*sprite_centaur_up;
 	void	*sprite_centaur_down;
+	void	*sprite_centaur_left;
+	void	*sprite_centaur_right;
 	void	*mlx;
 	void	*window;
 	int		img_size;
@@ -96,7 +100,7 @@ int		ft_parse_xpm(t_game *game);
 int		ft_subword(char *s, char *pattern);
 
 // Render & keys :
-void	ft_render_img(t_game *game);
+void	ft_render_img(t_game *game, int key_code);
 int		ft_event_key(int key_code, t_game *game);
 int		ft_render_static(t_game *game);
 
